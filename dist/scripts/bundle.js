@@ -94,17 +94,18 @@ __WEBPACK_IMPORTED_MODULE_1_jquery___default()(function() {
       method: 'GET',
       url: 'https://pokeapi.co/api/v2/pokemon/'+ getRandomInt(1,150)
     })
-    .done(function(data) {
+    .done(function(data){ 
+      // use data to make a battle game
+      console.log(data); 
       // Clear Field 
       __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.results p, .results .pokemon-name').empty();   
       
       // Add pokemon name to H1
       __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.results .pokemon-name').append(data.name);
-      // console.log(data.name); // used to debug
-
+  
       // Add pokemon sprite
       var pokeImg = __WEBPACK_IMPORTED_MODULE_0_pokemon_images___default.a.getSprite(data.name);
-      // console.log(pokeImg); // used to debug
+
       __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.results .pokeSprite').append('<img src='+pokeImg+' class="sprite">');
   
     })

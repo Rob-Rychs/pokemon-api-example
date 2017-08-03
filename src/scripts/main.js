@@ -19,17 +19,18 @@ $(function() {
       method: 'GET',
       url: 'https://pokeapi.co/api/v2/pokemon/'+ getRandomInt(1,150)
     })
-    .done(function(data) {
+    .done(function(data){ 
+      // use data to make a battle game
+      console.log(data); 
       // Clear Field 
       $('.results p, .results .pokemon-name').empty();   
       
       // Add pokemon name to H1
       $('.results .pokemon-name').append(data.name);
-      // console.log(data.name); // used to debug
-
+  
       // Add pokemon sprite
       var pokeImg = Pokemon.getSprite(data.name);
-      // console.log(pokeImg); // used to debug
+
       $('.results .pokeSprite').append('<img src='+pokeImg+' class="sprite">');
   
     })
